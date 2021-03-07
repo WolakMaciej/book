@@ -34,7 +34,7 @@ public class BookController {
     @PutMapping("/books/{id}")
     public String edit(@PathVariable long id,@RequestBody Book book){
         bookService.update(id, book);
-        return "redirect:/book/"+book.toString();
+        return "redirect:/book/"+book.getId();
     }
 
 

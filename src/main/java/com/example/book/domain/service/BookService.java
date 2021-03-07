@@ -2,10 +2,12 @@ package com.example.book.domain.service;
 
 import com.example.book.domain.model.Book;
 import com.example.book.domain.repository.BookRepository;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -29,7 +31,7 @@ public class BookService {
     }
 
     public Book getById(long id) {
-        return bookRepository.findById(id).get();
+        return bookRepository.findById(id).orElse(null);
     }
 
     public Book update(long id, Book book) {
